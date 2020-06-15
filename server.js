@@ -4,6 +4,9 @@ require("dotenv").config(); // Gets values from .env file
 
 //Create a .env file in the root directory of your project. Add environment-specific variables on new lines in the form of NAME=VALUE. For example:
 
+//API_KEY=$2a$10$UXikGabnOjFHDfhyygNUKO/npiXWroU3qlsUiDs2Rn2ZMkFJ3b9n.
+//BASE_URL=https://www.potterapi.com/v1/
+
 const app = express();
 const apiKey = process.env.API_KEY;
 const key = `?key=${apiKey}`;
