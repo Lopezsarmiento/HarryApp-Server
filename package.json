@@ -1,0 +1,18 @@
+{
+  "name": "harryapp-server",
+  "version": "1.0.0",
+  "description": "Server for DevelopmentApp",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diego Fco Lopez Sarmiento",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1"
+  }
+}
