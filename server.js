@@ -1,14 +1,21 @@
 const express = require("express");
 const axios = require("axios");
+require("dotenv").config(); // Gets values from .env file
+
+//Create a .env file in the root directory of your project. Add environment-specific variables on new lines in the form of NAME=VALUE. For example:
 
 const app = express();
+const apiKey = process.env.API_KEY;
+const key = `?key=${apiKey}`;
+const base_url = process.env.BASE_URL;
+
+console.log("process.env: ", process.env);
 
 app.get("/", (req, res) => {
   res.send("Wello Horld");
 });
 
 app.get("/api/sortingHat", async (req, res) => {
-  const base_url = "https://www.potterapi.com/v1/";
   const endpoint = "sortingHat";
   const apiResponse = await axios.get(`${base_url}${endpoint}`);
   console.log("apiResponse: ", apiResponse.data);
@@ -16,10 +23,7 @@ app.get("/api/sortingHat", async (req, res) => {
 });
 
 app.get("/api/characters", async (req, res) => {
-  const base_url = "https://www.potterapi.com/v1/";
   const endpoint = "characters";
-  const key =
-    "?key=$2a$10$UXikGabnOjFHDfhyygNUKO/npiXWroU3qlsUiDs2Rn2ZMkFJ3b9n.";
   const url = `${base_url}${endpoint}${key}`;
 
   const apiResponse = await axios.get(url);
@@ -31,11 +35,8 @@ app.get("/api/characters", async (req, res) => {
 // Return by characterId
 app.get("/api/characters/:id", async (req, res) => {
   console.log("req.params.id", req.params.id);
-  const base_url = "https://www.potterapi.com/v1/";
   const endpoint = "characters/";
   const id = req.params.id;
-  const key =
-    "?key=$2a$10$UXikGabnOjFHDfhyygNUKO/npiXWroU3qlsUiDs2Rn2ZMkFJ3b9n.";
   const url = `${base_url}${endpoint}${id}${key}`;
 
   const apiResponse = await axios.get(url);
@@ -44,10 +45,7 @@ app.get("/api/characters/:id", async (req, res) => {
 });
 
 app.get("/api/houses", async (req, res) => {
-  const base_url = "https://www.potterapi.com/v1/";
   const endpoint = "houses";
-  const key =
-    "?key=$2a$10$UXikGabnOjFHDfhyygNUKO/npiXWroU3qlsUiDs2Rn2ZMkFJ3b9n.";
   const url = `${base_url}${endpoint}${key}`;
 
   const apiResponse = await axios.get(url);
@@ -58,12 +56,8 @@ app.get("/api/houses", async (req, res) => {
 // TODO
 // Return by houseId
 app.get("/api/houses/:id", async (req, res) => {
-  console.log("req.params.id", req.params.id);
-  const base_url = "https://www.potterapi.com/v1/";
   const endpoint = "houses/";
   const id = req.params.id;
-  const key =
-    "?key=$2a$10$UXikGabnOjFHDfhyygNUKO/npiXWroU3qlsUiDs2Rn2ZMkFJ3b9n.";
   const url = `${base_url}${endpoint}${id}${key}`;
 
   const apiResponse = await axios.get(url);
@@ -72,10 +66,7 @@ app.get("/api/houses/:id", async (req, res) => {
 });
 
 app.get("/api/spells", async (req, res) => {
-  const base_url = "https://www.potterapi.com/v1/";
   const endpoint = "spells";
-  const key =
-    "?key=$2a$10$UXikGabnOjFHDfhyygNUKO/npiXWroU3qlsUiDs2Rn2ZMkFJ3b9n.";
   const url = `${base_url}${endpoint}${key}`;
 
   const apiResponse = await axios.get(url);
