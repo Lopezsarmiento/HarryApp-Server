@@ -15,6 +15,10 @@ app.use("/api/houses", houses);
 app.use("/api/sortingHat", sortingHat);
 app.use("/api/spells", spells);
 
+app.get("/", (req, res) => {
+  res.send("Wello Horld");
+});
+
 // Adding env variable => export PORT=4000
 const PORT = process.env.PORT || 5000;
 
